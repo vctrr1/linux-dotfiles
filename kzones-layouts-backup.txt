@@ -1,0 +1,43 @@
+[
+    {
+        "name": "Primary Monitor",
+        "padding": 0,
+        "zones": [
+            {
+                "x": 0,
+                "y": 0,
+                "height": 100,
+                "width": 63
+            },
+            {
+                "x": 63,
+                "y": 0,
+                "height": 100,
+                "width": 37
+            }
+        ]
+    },
+    {
+        "name": "Secondary Monitor",
+        "zones": [
+            {
+                "x": 0,
+                "y": 0,
+                "height": 38,
+                "width": 100
+            },
+            {
+                "x": 0,
+                "y": 38,
+                "height": 34,
+                "width": 100
+            },
+            {
+                "x": 0,
+                "y": 72,
+                "height": 28,
+                "width": 100
+            }
+        ]
+    }
+]
