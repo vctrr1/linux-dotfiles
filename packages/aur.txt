@@ -1,0 +1,10 @@
+android-studio
+insomnia
+litehtml0.9
+localsend-bin
+motrix-bin
+neofetch
+protonplus
+python-pkg_resources
+visual-studio-code-bin
+zen-browser-bin
