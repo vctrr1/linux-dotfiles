@@ -1,0 +1,18 @@
+{
+    "outputs": [
+        {
+            "id": "2dd353c1f5bb7d41950bb180bcef2932",
+            "metadata": {
+                "name": "DP-3"
+            },
+            "vrrpolicy": 1
+        },
+        {
+            "id": "55b614d02aa275d6403be3f8f1d8d8b8",
+            "metadata": {
+                "name": "DP-2"
+            },
+            "vrrpolicy": 1
+        }
+    ]
+}

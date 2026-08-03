@@ -1,0 +1,24 @@
+MenuBar=Disabled
+
+[ExtractDialog]
+2 screens: Height=480
+2 screens: Width=894
+DirHistory[$e]=$HOME/Downloads/F/,$HOME/Downloads/
+
+[General]
+RememberOpenedTabs=false
+Version=202
+ViewPropsTimestamp=2025,12,14,14,25,36.23
+
+[IconsMode]
+PreviewSize=80
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,directorythumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,opendocumentthumbnail,svgthumbnail,windowsexethumbnail,windowsimagethumbnail,fontthumbnail,ffmpegthumbs,blenderthumbnail,gsthumbnail,mobithumbnail,rawthumbnail,glycin-heif,glycin-image-rs,glycin-jxl,glycin-svg,ffmpegthumbnailer,gsf-office,heif

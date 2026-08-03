@@ -1,0 +1,6 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export TERM:xterm\x2d256color
+SETUVAR __fish_initialized:4300
+SETUVAR fish_config_auto_newline:no
+SETUVAR fish_user_paths:/home/victor/\x2ecargo/bin
