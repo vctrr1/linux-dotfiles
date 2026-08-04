@@ -1,0 +1,64 @@
+{
+  "workbench.colorTheme": "Bearded Theme Monokai Metallian",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontLigatures": true, //usa nerd font para ligar simbolos tipo =>
+  "editor.lineHeight": 1.8, //espaçamento entre as linhas
+  "editor.renderLineHighlight": "gutter", //fica marcado o numero da linha que o ponteiro esta
+  "explorer.compactFolders": false, //encolhe uma pasta quando n tem nenhum arquivo dentro.
+  "editor.minimap.enabled": false, //desativar mini mapa
+  //"editor.scrollbar.vertical": "hidden",
+  //"editor.scrollbar.horizontal": "hidden",
+  "editor.tabCompletion": "on", // auto completar com tab
+  "editor.cursorBlinking": "expand", //animação do cursor
+  "editor.cursorSmoothCaretAnimation": "on", // Ativa animação suave ao mover o cursor pelo código
+  "workbench.tree.indent": 15, // Define o espaçamento entre níveis de pastas no Explorer
+  "breadcrumbs.enabled": false, // remove path do arquvivo que fica no topo do arquivo aberto
+  "workbench.statusBar.visible": true, // Mantém a barra de status na parte inferior do VS Code
+  //"workbench.activityBar.location": "hidden", //esconde a barra de atividade
+  "symbols.hidesExplorerArrows": false, // Mostra as setas de expansão das pastas no Explorer
+  "terminal.integrated.fontSize": 14, // Tamanho da fonte do terminal integrado
+  //desativando os icones que n faz sentido perto dos botoes de fechar/minimizar
+  "chat.viewSessions.orientation": "stacked",
+  "workbench.navigationControl.enabled": false,
+  "chat.titleBar.signIn.enabled": false,
+  "chat.titleBar.openInAgentsWindow.enabled": false,
+  "workbench.browser.showInTitleBar": false,
+
+  "editor.formatOnSave": true,
+
+  "redhat.telemetry.enabled": false,
+
+  // Oculta arquivos/pastas específicos do Explorer
+  // Normalmente são arquivos utilizados por projetos Java/Eclip
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "terminal.integrated.env.windows": {},
+  "terminal.integrated.env.linux": {},
+
+  "console-ninja.featureSet": "Community",
+  // Define o Prettier como formatador padrão para JavaScript/JSX
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Atualiza automaticamente os imports quando arquivos JS/TS são movidos
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  // Remove a mensagem/dica exibida quando não há nenhum editor aberto
+  "workbench.editor.empty.hint": "hidden",
+
+  "docker.extension.enableComposeLanguageServer": false,
+  "security.workspace.trust.untrustedFiles": "open",
+
+  "git.autofetch": true
+}
