@@ -1,0 +1,227 @@
+[bar.default]
+auto_hide = true
+background_opacity = 0.97999997809529305
+center = [ "todo", "clock", "notes" ]
+end = [
+    "media",
+    "tray",
+    "notifications",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "control-center",
+    "session"
+]
+margin_ends = 0
+radius_top_left = 0
+radius_top_right = 0
+reserve_space = false
+start = [ "launcher", "wallpaper", "workspaces", "clipboard", "widget" ]
+
+[brightness]
+enable_ddcutil = true
+
+[control_center]
+hidden_tabs = [ "power", "bluetooth" ]
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "keyboard_layout"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+[dock]
+auto_hide = true
+background_opacity = 0.97999997809529305
+cross_axis_padding = 5
+enabled = true
+icon_size = 40
+launcher_custom_image = "/home/victor/Imagens/icons/arch-linux.svg"
+launcher_position = "start"
+magnification_scale = 1.2500000037252903
+reserve_space = false
+show_dots = true
+
+[location]
+address = ""
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-3" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 898.0
+    output = "DP-2"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "DP-3"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 608.0
+    cx = 320.0
+    cy = 298.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[osd]
+background_opacity = 0.97999997809529305
+position = "top_right"
+position_vertical = "top_right"
+
+[plugin_settings."noctalia/notes"]
+extension = "txt"
+panel_position = "top_right"
+
+[plugins]
+enabled = [ "oldirtty/color_picker", "nightwatch75/todo", "noctalia/notes" ]
+
+[shell]
+avatar_path = "/home/victor/Imagens/avatar.jpeg"
+polkit_agent = true
+screen_time_enabled = true
+
+    [shell.launcher]
+    categories = false
+
+    [shell.screenshot]
+    directory = "/home/victor/Imagens"
+
+[theme]
+builtin = "Eldritch"
+community_palette = "Tokyo Night Moon"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-content"
+
+[wallpaper]
+directory_dark = "/home/victor/Imagens/wallpapers"
+
+    [wallpaper.default]
+    path = "/home/victor/Imagens/wallpapers/164.png"
+
+    [wallpaper.last]
+    path = "/home/victor/Imagens/wallpapers/164.png"
+
+    [wallpaper.monitors.DP-2]
+    path = "/home/victor/Imagens/wallpapers/164.png"
+
+    [wallpaper.monitors.DP-3]
+    path = "/home/victor/Imagens/wallpapers/164.png"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/victor/Imagens/wallpapers/Green_Peace.png"
+
+[widget.battery]
+enabled = false
+
+[widget.bluetooth]
+enabled = false
+
+[widget.brightness]
+enabled = false
+
+[widget.control-center]
+enabled = false
+
+[widget.launcher]
+enabled = false
+
+[widget.network]
+enabled = false
+
+[widget.notes]
+type = "noctalia/notes:notes"
+
+[widget.notifications]
+enabled = false
+
+[widget.todo]
+type = "nightwatch75/todo:todo"
+
+[widget.tray]
+capsule_fill = "secondary"
+drawer = true
+
+[widget.wallpaper]
+enabled = false
+
+[widget.widget]
+type = "oldirtty/color_picker:widget"
