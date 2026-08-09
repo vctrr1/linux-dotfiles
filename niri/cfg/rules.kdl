@@ -1,0 +1,50 @@
+// ─────────────────────────────────────────────
+// Global Window Appearance
+// ─────────────────────────────────────────────
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+// Floating Noctalia settings window.
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
+// Floating Nautilus window.
+window-rule {
+  match app-id="org.gnome.Nautilus"
+  open-floating true
+  // Satura os limites mínimos para permitir janelas bem pequenas
+  min-width 0
+  min-height 0
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 600; }
+}
+
+//Window Rule to programns like "Open File" and "Save File" dialogs to open floating and with a specific size.
+window-rule {
+    match title="^Open File$"
+    match title="^Abrir Arquivo$"
+    match title="^Save File$"
+    match title="^Salvar Arquivo$"
+    open-floating true
+    default-column-width {
+        proportion 0.4
+    }
+    default-window-height {
+        proportion 0.6
+    }
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+xrandr \
+    --output DisplayPort-1 \
+    --mode 2560x1080 \
+    --rate 74.99 \
+    --primary \
+    --output DisplayPort-2 \
+    --off \
+    --output HDMI-A-0 \
+    --off

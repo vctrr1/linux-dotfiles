@@ -1,0 +1,15 @@
+// this line to ask the clients to omit their client-side decorations if possible. needs restart to work.
+prefer-no-csd
+
+cursor {
+    xcursor-theme "Bibata-Modern-Ice" //installed with `pacman -S bibata-cursor-theme-bin`
+    xcursor-size 24
+}
+
+hotkey-overlay {
+    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
+    skip-at-startup
+}
+
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "/Imagens/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
