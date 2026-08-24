@@ -1,0 +1,4 @@
+https://github.com/frankcrawford/it87
+
+git clone https://github.com/frankcrawford/it87.git
+cd it87
