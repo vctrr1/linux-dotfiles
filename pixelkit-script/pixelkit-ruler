@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Descobre qual output está focado no Niri
+output=$(niri msg focused-output | head -n 1 | sed -n 's/.*(\([^)]*\)).*/\1/p')
+
+if [[ -z "$output" ]]; then
+    echo "Não foi possível descobrir o output focado."
+    exit 1
+fi
+
+# Arquivo temporário para a captura
+screenshot=$(mktemp --suffix=.png)
+
+# Remove a captura quando o script terminar
+trap 'rm -f "$screenshot"' EXIT
+
+# Captura somente o monitor focado
+grim -o "$output" "$screenshot"
+
+# Abre o Screen Ruler do PixelKit usando a captura
+pixelkit screen-ruler --image "$screenshot"
