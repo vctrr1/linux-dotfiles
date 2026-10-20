@@ -1,0 +1,20 @@
+
+cd ~/.driver/it87
+
+make clean
+
+make LLVM=1
+
+
+sudo mkdir -p /usr/lib/modules/$(uname -r)/updates
+
+sudo install -D -m 644 it87.ko \
+  /usr/lib/modules/$(uname -r)/updates/it87.ko
+
+sudo depmod -a
+
+modinfo it87 | grep -E 'filename|vermagic'
+
+sudo modprobe it87
+
+sudo systemctl restart coolercontrold

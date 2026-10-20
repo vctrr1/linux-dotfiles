@@ -1,0 +1,9 @@
+netscanner
+lazydocker
+lazygit
+eza
+nvtop
+lazysql
+bookokrat-bin
+systemd-manager-tui
+netscli-bin
