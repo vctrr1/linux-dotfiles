@@ -1,4 +1,3 @@
-```kdl
 binds {
     // ═══════════════════════════════════════════════════════════════
     // APPLICATIONS
@@ -318,7 +317,8 @@ binds {
     }
 
     Mod+Shift+R {
-        switch-preset-column-width-back;
+        //switch-preset-column-width-back;
+        spawn "~/.local/bin/pixelkit-ruler";
     }
 
     // Window height presets

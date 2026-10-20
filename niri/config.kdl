@@ -19,3 +19,4 @@ include "cfg/keybinds.kdl"
 
 // Miscellaneous
 include "cfg/misc.kdl"
+include "noctalia.kdl"

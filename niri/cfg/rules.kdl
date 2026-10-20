@@ -48,3 +48,21 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
+
+//Steam window rule
+window-rule {
+    match app-id="steam" title=r"Steam.*Configurações"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}
+
+// Calculadora window rule
+window-rule {
+    match app-id="^org.gnome.Calculator$"
+    // Força o Qalculate! a abrir flutuando
+    open-floating true    
+    // Ajuste esses valores para o tamanho de janela que preferir
+    default-column-width { fixed 450; }
+    default-window-height { fixed 600; }
+}
