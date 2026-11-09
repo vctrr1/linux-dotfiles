@@ -146,11 +146,25 @@ backup_dir "$HOME_CONFIG/kitty" "kitty"
 backup_dir "$HOME_CONFIG/nvim" "nvim"
 backup_dir "$HOME_CONFIG/fastfetch" "fastfetch"
 backup_dir "$HOME_CONFIG/niri" "niri"
+backup_dir "$HOME_CONFIG/umbriel" "umbriel"
+backup_dir "$HOME_CONFIG/zed" "zed"
 
 # Shells e configurações individuais.
 backup_file "$HOME/.zshrc" "zsh/.zshrc"
 backup_file "$HOME/.gitconfig" "git/gitconfig"
 backup_file "$HOME_CONFIG/starship.toml" "starship/starship.toml"
+# Scripts personalizados: Steam Big Picture e 8BitDo.
+backup_file \
+    "$HOME/.local/bin/8bitdo-home.py" \
+    "script-steam-bigpicture-tv/8bitdo-home.py"
+# Script de foco ao iniciar steam big picture
+backup_file \
+    "$HOME/.local/bin/steam-bigpicture-focus.sh" \
+    "script-steam-bigpicture-tv/steam-bigpicture-focus.sh"
+# Serviço systemd do monitoramento 8BitDo.
+backup_file \
+    "$HOME_CONFIG/systemd/user/8bitdo-home.service" \
+    "script-steam-bigpicture-tv/8bitdo-home.service"
 
 # Noctalia usa o export oficial para reunir os overrides da GUI.
 backup_noctalia

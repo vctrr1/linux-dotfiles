@@ -1,10 +1,8 @@
 bibata-cursor-theme-bin
-bookokrat-bin
-linotes
-pixelkit
+moonshine-bin
 rayburst-bin
 rustdesk-unattended-wayland
-sddm-silent-theme
-systemd-manager-tui
+systemd-manager-tui-bin
 ttf-ms-fonts
+umbriel-git
 visual-studio-code-bin

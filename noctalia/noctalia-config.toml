@@ -1,24 +1,13 @@
 [bar.default]
 auto_hide = true
-background_opacity = 0.97999997809529305
-center = [ "todo", "clock" ]
-end = [
-    "media",
-    "tray",
-    "notifications",
-    "network",
-    "bluetooth",
-    "volume",
-    "brightness",
-    "battery",
-    "control-center",
-    "session"
-]
+background_opacity = 0.4999999888241291
+center = [ "clock", "bar" ]
+end = [ "media", "tray", "widget", "volume" ]
 margin_ends = 0
-radius_top_left = 0
-radius_top_right = 0
+radius = 0
 reserve_space = false
-start = [ "launcher", "wallpaper", "workspaces", "clipboard", "widget", "notes" ]
+start = [ "launcher", "wallpaper", "workspaces", "clipboard", "notes", "widget_2" ]
+thickness = 30
 
 [brightness]
 enable_ddcutil = true
@@ -36,23 +25,21 @@ hidden_tabs = [ "power", "bluetooth" ]
     type = "notification"
 
     [[control_center.shortcuts]]
-    type = "keyboard_layout"
+    type = "power_profile"
 
     [[control_center.shortcuts]]
-    type = "power_profile"
+    type = "session"
 
 [dock]
 auto_hide = true
-background_opacity = 0.97999997809529305
-cross_axis_padding = 5
+background_opacity = 0.4999999888241291
+cross_axis_padding = 3
 enabled = true
 icon_size = 40
-launcher_custom_image = "/home/victor/Imagens/icons/arch-linux.svg"
 launcher_position = "start"
-magnification_scale = 1.2500000037252903
-pinned = [ "org.gnome.Nautilus" ]
+magnification_scale = 1.2000000029802322
+main_axis_padding = 17
 reserve_space = false
-show_dots = true
 
 [idle]
 behavior_order = [ "screen-off", "lock", "lock-and-suspend" ]
@@ -60,7 +47,7 @@ behavior_order = [ "screen-off", "lock", "lock-and-suspend" ]
     [idle.behavior.lock]
     action = "lock"
     enabled = false
-    timeout = 600.0
+    timeout = 360.0
 
     [idle.behavior.lock-and-suspend]
     action = "lock_and_suspend"
@@ -75,8 +62,11 @@ behavior_order = [ "screen-off", "lock", "lock-and-suspend" ]
 [location]
 address = "Campina Grande - PB"
 
+[lockscreen]
+transition = [ "disc", "fade", "honeycomb", "wipe", "zoom" ]
+
 [lockscreen_widgets]
-enabled = true
+enabled = false
 schema_version = 2
 widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-3" ]
 
@@ -97,7 +87,7 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -116,8 +106,8 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "
     [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
     box_height = 196.0
     box_width = 810.0
-    cx = 960.0
-    cy = 898.0
+    cx = 540.0
+    cy = 1596.4444580078125
     output = "DP-3"
     placement_height = 1920.0
     placement_width = 1080.0
@@ -125,7 +115,7 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -144,8 +134,8 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "
     [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
     box_height = 196.0
     box_width = 720.0
-    cx = 320.0
-    cy = 298.0
+    cx = 1920.0
+    cy = 1341.0
     output = "HDMI-A-1"
     placement_height = 2160.0
     placement_width = 3840.0
@@ -153,7 +143,7 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -169,69 +159,71 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "
         show_unlock_hint = true
         show_weather = true
 
-[osd]
-background_opacity = 0.97999997809529305
-position = "top_right"
-position_vertical = "top_right"
+[nightlight]
+enabled = true
 
-    [osd.kinds]
-    media = false
-
-[plugin_settings."nightwatch75/todo"]
-todo_folder = "/home/victor/Documentos/todo"
+[plugin_settings."noctalia/mpvpaper"]
+run_as_systemd = true
+video_directory = "/home/victor/Imagens/wallpapers/animated"
 
 [plugin_settings."noctalia/notes"]
-extension = "txt"
+extension = ".txt"
 notes_dir = "/home/victor/Documentos/notes"
-panel_position = "top_right"
 
 [plugins]
-enabled = [ "oldirtty/color_picker", "nightwatch75/todo", "noctalia/notes", "noctalia/translator" ]
+enabled = [ "noctalia/notes", "oldirtty/color_picker", "noctalia/umbriel-companion" ]
 
 [shell]
-avatar_path = "/home/victor/Imagens/avatar.jpeg"
+avatar_path = "/home/victor/Imagens/icons/avatar.jpeg"
+clipboard_history_max_entries = 40
+font_family = "JetBrainsMono Nerd Font Mono"
 password_style = "random"
 polkit_agent = true
 screen_time_enabled = true
 
-    [shell.greeter_sync]
-    auto_sync = true
-
     [shell.launcher]
     categories = false
     layout = "simple"
-    width = 700
+
+    [shell.panel]
+    session_position = "top_center"
+    transparency_mode = "soft"
 
     [shell.screenshot]
-    directory = "/home/victor/Imagens"
+    confirm_region = true
 
 [theme]
-builtin = "Ayu"
-community_palette = "Tokyo Night Moon"
+builtin = "Kanagawa"
+community_palette = "Everforest Material"
 mode = "dark"
-source = "wallpaper"
-wallpaper_scheme = "m3-rainbow"
+source = "community"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "kitty", "niri" ]
+    builtin_ids = [ "gtk3", "gtk4", "kitty", "niri", "qt", "umbriel" ]
+    community_ids = [ "micro", "obsidian", "zed", "yazi" ]
 
 [wallpaper]
-directory_dark = "/home/victor/Imagens/wallpapers"
+directory = "/home/victor/Imagens/wallpapers"
+transition = [ "disc", "fade", "honeycomb", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/victor/Imagens/wallpapers/goku-perfected-3840x2160-25454.jpg"
+    path = "/home/victor/Imagens/wallpapers/1.jpg"
 
     [wallpaper.last]
-    path = "/home/victor/Imagens/wallpapers/goku-perfected-3840x2160-25454.jpg"
+    path = "/home/victor/Imagens/wallpapers/1.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/victor/Imagens/wallpapers/goku-perfected-3840x2160-25454.jpg"
+    path = "/home/victor/Imagens/wallpapers/1.jpg"
 
     [wallpaper.monitors.DP-3]
-    path = "/home/victor/Imagens/wallpapers/goku-perfected-3840x2160-25454.jpg"
+    path = "/home/victor/Imagens/wallpapers/1.jpg"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/victor/Imagens/wallpapers/goku-perfected-3840x2160-25454.jpg"
+    path = "/home/victor/Imagens/wallpapers/1.jpg"
+
+[widget.bar]
+type = "noctalia/umbriel-companion:bar"
 
 [widget.battery]
 enabled = false
@@ -240,9 +232,6 @@ enabled = false
 enabled = false
 
 [widget.brightness]
-enabled = false
-
-[widget.control-center]
 enabled = false
 
 [widget.launcher]
@@ -257,16 +246,20 @@ type = "noctalia/notes:notes"
 [widget.notifications]
 enabled = false
 
-[widget.todo]
+[widget.session]
 enabled = false
-type = "nightwatch75/todo:todo"
+
+[widget.sysmon]
+stat = "ram_used"
 
 [widget.tray]
-capsule_fill = "secondary"
 drawer = true
 
 [widget.wallpaper]
 enabled = false
 
 [widget.widget]
+type = "alexander/screen-toolkit:widget"
+
+[widget.widget_2]
 type = "oldirtty/color_picker:widget"

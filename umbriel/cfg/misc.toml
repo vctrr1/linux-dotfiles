@@ -1,0 +1,7 @@
+[include]
+files = []
+
+[hot_corners.top_left]
+enabled = true
+delay_ms = 500
+action = "overview-open"

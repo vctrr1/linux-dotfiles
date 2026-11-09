@@ -1,2 +1,3 @@
 com.discordapp.Discord
+com.github.tenderowl.frog
 com.spotify.Client

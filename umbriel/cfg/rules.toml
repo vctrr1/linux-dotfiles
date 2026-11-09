@@ -1,0 +1,101 @@
+# Aparência global e blur
+[[window_rule]]
+blur = true
+
+# Noctalia
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_floating = true
+default_floating_size_px = { width = 1080, height = 920 }
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+default_floating_size_px = { width = 800, height = 600 }
+
+# Nautilus
+[[window_rule]]
+match.app_id = "^org[.]gnome[.]Nautilus$"
+default_floating = true
+default_floating_size_px = { width = 1080, height = 600 }
+
+# Diálogos de arquivos
+[[window_rule]]
+match.title = ["^Open File$", "^Abrir Arquivo$", "^Save File$", "^Salvar Arquivo$"]
+default_floating = true
+default_floating_size = { width = 0.4, height = 0.6 }
+
+# Firefox Picture-in-Picture
+[[window_rule]]
+match.app_id = "firefox$"
+match.title = "^Picture-in-Picture$"
+default_floating = true
+
+[[window_rule]]
+match.app_id = "^firefox$"
+match.title = "^Biblioteca$"
+default_floating = true
+default_floating_size_px = { width = 850, height = 700 }
+
+# PiP genérico
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 20, y = 20, anchor = "bottom_right" }
+
+# Notificações
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop$"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+# Steam normal: monitor vertical
+[[window_rule]]
+match.app_id = "^steam$"
+match.title = "^(?!Steam — Modo Big Picture$).+"
+default_output = "DP-3"
+
+# Steam Big Picture: TV Samsung
+[[window_rule]]
+match.app_id = "^steam$"
+match.title = "^Steam — Modo Big Picture$"
+default_output = "HDMI-A-1"
+default_floating = false
+default_maximize = true
+
+# Steam: propriedades e diálogos
+[[window_rule]]
+match.app_id = "^steam$"
+match.title = "^(?!Steam$)(?!Steam — Modo Big Picture$).+"
+default_floating = true
+
+# Calculadora
+[[window_rule]]
+match.app_id = "^org[.]gnome[.]Calculator$"
+default_floating = true
+default_floating_size_px = { width = 450, height = 600 }
+
+# Frog
+[[window_rule]]
+match.app_id = "^com[.]github[.]tenderowl[.]frog$"
+default_floating = true
+default_floating_size_px = { width = 600, height = 600 }
+
+# Red Dead Redemption 2
+[[window_rule]]
+match.app_id = "^steam_app_1174180$"
+default_floating = true
+
+# Deadlock: monitor principal
+[[window_rule]]
+match.app_id = "^steam_app_1422450$"
+default_fullscreen = true
+default_output = "DP-2"
+
+# Rayman Legends
+[[window_rule]]
+match.app_id = "^steam_app_242550$"
+match.title = "^Rayman Legends$"
+default_fullscreen = true

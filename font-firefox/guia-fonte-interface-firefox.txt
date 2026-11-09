@@ -1,0 +1,106 @@
+GUIA — CONFIGURAR A FONTE DA INTERFACE DO FIREFOX NO CACHYOS
+================================================================
+
+Objetivo
+--------
+Alterar a fonte da interface do Firefox (abas, barra de navegação e outros
+componentes compatíveis) usando JetBrains Mono Nerd Font por meio de
+userChrome.css.
+
+Este guia usa o perfil encontrado neste computador:
+  /home/victor/.config/mozilla/firefox/2hjo6ano.default-release
+
+Se o perfil mudar no futuro, localize o caminho atualizado em about:support.
+
+1. Confirmar que a fonte está instalada
+---------------------------------------
+Abra um terminal e execute:
+
+  fc-match 'JetBrainsMono Nerd Font'
+
+O resultado esperado deve mencionar algo como:
+  JetBrainsMonoNerdFont-Regular.ttf: "JetBrainsMono Nerd Font" "Regular"
+
+Isso confirma que o Fontconfig reconhece a fonte.
+
+2. Encontrar a pasta do perfil do Firefox
+-----------------------------------------
+1. Abra o Firefox.
+2. Digite na barra de endereço:
+     about:support
+3. Na seção “Configurações básicas do aplicativo” (Application Basics),
+   localize “Pasta do perfil” (Profile Directory).
+4. Clique em “Abrir pasta” (Open Directory).
+
+No computador usado para este guia, a pasta encontrada foi:
+  /home/victor/.config/mozilla/firefox/2hjo6ano.default-release
+
+Observação: não confunda “Pasta do perfil” com “Diretório de atualização”.
+
+3. Ativar o carregamento de userChrome.css
+------------------------------------------
+1. No Firefox, abra:
+     about:config
+2. Pesquise:
+     toolkit.legacyUserProfileCustomizations.stylesheets
+3. Altere a preferência para:
+     true
+
+Essa opção permite que o Firefox carregue o arquivo userChrome.css do perfil.
+
+4. Criar a pasta chrome e o arquivo userChrome.css
+--------------------------------------------------
+No terminal, execute:
+
+  mkdir -p ~/.config/mozilla/firefox/2hjo6ano.default-release/chrome
+  nano ~/.config/mozilla/firefox/2hjo6ano.default-release/chrome/userChrome.css
+
+No editor Nano, cole este conteúdo:
+
+  * {
+    font-family: "JetBrainsMono Nerd Font" !important;
+  }
+
+Para salvar no Nano:
+  1. Pressione Ctrl + O.
+  2. Pressione Enter para confirmar o nome do arquivo.
+  3. Pressione Ctrl + X para sair.
+
+O arquivo deve ficar neste caminho:
+  ~/.config/mozilla/firefox/2hjo6ano.default-release/chrome/userChrome.css
+
+5. Reiniciar o Firefox
+----------------------
+Feche todas as janelas do Firefox e abra-o novamente.
+
+A regra CSS deve aplicar JetBrains Mono Nerd Font aos componentes da interface
+que aceitam essa personalização, como abas e barra de navegação. Alguns menus
+ou componentes nativos podem não obedecer à regra global.
+
+6. Conferir o arquivo, se não funcionar
+---------------------------------------
+Verifique se o arquivo existe e veja seu conteúdo:
+
+  cat ~/.config/mozilla/firefox/2hjo6ano.default-release/chrome/userChrome.css
+
+Confirme também que a preferência abaixo continua definida como true em
+about:config:
+
+  toolkit.legacyUserProfileCustomizations.stylesheets
+
+Se a pasta do perfil for diferente, volte a about:support e use o caminho
+atual mostrado em “Pasta do perfil”.
+
+Resumo dos passos
+-----------------
+1. Confirmar a fonte com fc-match.
+2. Encontrar o perfil em about:support.
+3. Ativar toolkit.legacyUserProfileCustomizations.stylesheets em about:config.
+4. Criar chrome/userChrome.css dentro da pasta do perfil.
+5. Colocar a regra CSS com a família desejada.
+6. Fechar e reabrir o Firefox.
+
+Para usar outra fonte, substitua “JetBrainsMono Nerd Font” no CSS pelo nome
+da família reconhecido pelo sistema. Para conferir nomes instalados, use:
+
+  fc-list : family | sort -u

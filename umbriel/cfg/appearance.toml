@@ -1,0 +1,9 @@
+[appearance]
+prefer_no_csd = true
+border_width = 1
+corner_radius = 10
+
+[appearance.blur]
+enabled = true
+optimized = true
+radius = 3

@@ -49,20 +49,63 @@ window-rule {
     open-floating true
 }
 
-//Steam window rule
+//Firefox download window rule
 window-rule {
-    match app-id="steam" title=r"Steam.*Configurações"
+    match app-id="^firefox$" title="^Biblioteca$"
     open-floating true
-    default-column-width { fixed 1080; }
-    default-window-height { fixed 920; }
+    default-column-width { fixed 850; }
+    default-window-height { fixed 700; }
+}
+
+// Steam normal: monitor vertical
+window-rule {
+    match app-id="^steam$"
+    exclude title="^Steam — Modo Big Picture$"
+    open-on-output "DP-3"
+    min-width 0
+    min-height 0
+}
+
+// Steam Big Picture: TV Samsung
+window-rule {
+    match app-id="^steam$" title="^Steam — Modo Big Picture$"
+    open-on-output "HDMI-A-1"
+    open-floating false
+    open-maximized true
+}
+
+// Steam game properties and dialogs open on floating
+window-rule {
+    match app-id="^steam$"
+    exclude title="^Steam$"
+    exclude title="^Steam — Modo Big Picture$"
+    open-floating true
 }
 
 // Calculadora window rule
 window-rule {
     match app-id="^org.gnome.Calculator$"
-    // Força o Qalculate! a abrir flutuando
-    open-floating true    
-    // Ajuste esses valores para o tamanho de janela que preferir
+    open-floating true
     default-column-width { fixed 450; }
     default-window-height { fixed 600; }
+}
+// Frog window rule
+window-rule {
+    match app-id="com.github.tenderowl.frog"
+    open-floating true
+    default-column-width { fixed 600; }
+    default-window-height { fixed 600; }
+}
+
+// Deadlock window rule, always play on primary monitor
+window-rule {
+    match app-id="^steam_app_1422450$"
+    open-fullscreen true
+    open-on-output "DP-2"
+}
+
+//Rayman Legend window rule.
+window-rule {
+    match app-id="^steam_app_242550$" title="^Rayman Legends$"
+    open-fullscreen true
 }

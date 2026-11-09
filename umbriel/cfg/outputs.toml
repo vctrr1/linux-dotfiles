@@ -1,0 +1,14 @@
+[output.DP-2]
+mode = "2560x1080@74.991"
+position = [0, 0]
+transform = "normal"
+
+[output.DP-3]
+mode = "1920x1080@74.973"
+position = [-1080, -135]
+transform = "90"
+
+[output.HDMI-A-1]
+mode = "3840x2160@120"
+position = [2560, 0]
+transform = "normal"

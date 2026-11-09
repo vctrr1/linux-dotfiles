@@ -1,0 +1,252 @@
+GUIA — CONTROLE 8BITDO PARA ABRIR O STEAM BIG PICTURE NO NIRI
+
+OBJETIVO
+
+Pressionar o botão Home do controle 8BitDo para abrir o Steam Big
+Picture quando estiver fechado ou localizar/focar sua janela quando já
+estiver aberto. O monitor da TV nesta configuração é HDMI-A-1.
+
+1. DEPENDÊNCIAS
+
+Pacote Python utilizado:
+
+    sudo pacman -S python-evdev
+
+O script também utiliza Steam, jq e niri.
+
+2. IDENTIFICAR O CONTROLE E O BOTÃO HOME
+
+Listar dispositivos de entrada:
+
+    ls -l /dev/input/event*
+
+Identificar o dispositivo e observar os eventos:
+
+    sudo evtest
+
+Nesta configuração, o botão Home foi identificado como:
+
+    EV_KEY
+    code 316 (BTN_MODE)
+
+O caminho /dev/input/eventN pode mudar. O script Python procura o
+controle pelo nome, portanto não depende de um número fixo.
+
+3. PERMISSÕES DO DISPOSITIVO
+
+Verificar a ACL do dispositivo (substitua event28 pelo caminho atual):
+
+    getfacl /dev/input/event28
+
+A configuração funcionou com a permissão ACL do usuário. Não foi
+necessário adicionar o usuário ao grupo input nem criar regra udev.
+
+4. SCRIPT DE ABERTURA/FOCO DO BIG PICTURE
+
+Arquivo:
+
+    ~/.local/bin/steam-bigpicture-focus.sh
+
+Conteúdo:
+
+    #!/usr/bin/env bash
+
+    # Procura a janela do Steam Big Picture
+    find_bigpicture() {
+        niri msg --json windows |
+            jq -r '.[] | select(
+                .app_id == "steam" and
+                .title == "Steam — Modo Big Picture"
+            ) | .id' |
+            head -n1
+    }
+
+    # Verifica se o Big Picture já está aberto
+    window_id=$(find_bigpicture)
+
+    # Se não estiver aberto, solicita a abertura
+    if [[ -z "$window_id" ]]; then
+        steam steam://open/bigpicture
+
+        # Aguarda a janela aparecer
+        for _ in {1..20}; do
+            sleep 0.3
+            window_id=$(find_bigpicture)
+
+            [[ -n "$window_id" ]] && break
+        done
+    fi
+
+    # Foca a janela e troca para sua workspace
+    if [[ -n "$window_id" ]]; then
+        niri msg action focus-window --id "$window_id"
+        niri msg action focus-monitor HDMI-A-1
+    fi
+
+Tornar executável:
+
+    chmod +x ~/.local/bin/steam-bigpicture-focus.sh
+
+5. MONITOR PYTHON DO BOTÃO HOME
+
+Arquivo:
+
+    ~/.local/bin/8bitdo-home.py
+
+Conteúdo:
+
+    #!/usr/bin/env python3
+
+    import time
+    import subprocess
+    from evdev import InputDevice, list_devices, ecodes
+
+    CONTROLLER_NAME = "8BitDo Ultimate Wireless / Pro 2 Wired Controller"
+    SCRIPT = "/home/victor/.local/bin/steam-bigpicture-focus.sh"
+
+
+    def find_controller():
+        for path in list_devices():
+            try:
+                device = InputDevice(path)
+                if device.name == CONTROLLER_NAME:
+                    return device
+                device.close()
+            except OSError:
+                continue
+
+        return None
+
+
+    while True:
+        controller = find_controller()
+
+        if controller is None:
+            print("Controle 8BitDo não encontrado. Tentando novamente...", flush=True)
+            time.sleep(3)
+            continue
+
+        print(f"Monitorando: {controller.name} ({controller.path})", flush=True)
+
+        try:
+            for event in controller.read_loop():
+                if (
+                    event.type == ecodes.EV_KEY
+                    and event.code == ecodes.BTN_MODE
+                    and event.value == 1
+                ):
+                    print("Botão Home pressionado.", flush=True)
+                    subprocess.Popen([SCRIPT])
+
+        except OSError as error:
+            print(f"Controle desconectado: {error}", flush=True)
+
+        finally:
+            controller.close()
+
+        time.sleep(2)
+
+Tornar executável:
+
+    chmod +x ~/.local/bin/8bitdo-home.py
+
+O monitor não chama grab(), então não bloqueia os eventos do controle
+enviados ao Steam Input.
+
+6. SERVIÇO SYSTEMD DO USUÁRIO
+
+Arquivo:
+
+    ~/.config/systemd/user/8bitdo-home.service
+
+Conteúdo:
+
+    [Unit]
+    Description=8BitDo Home Button Monitor
+    After=graphical-session.target
+
+    [Service]
+    Type=simple
+    ExecStart=/usr/bin/python /home/victor/.local/bin/8bitdo-home.py
+    Restart=always
+    RestartSec=3
+
+    [Install]
+    WantedBy=default.target
+
+Criar o diretório, se necessário:
+
+    mkdir -p ~/.config/systemd/user
+
+Recarregar unidades e habilitar/iniciar:
+
+    systemctl --user daemon-reload
+    systemctl --user enable --now 8bitdo-home.service
+
+7. COMANDOS ÚTEIS
+
+Verificar o serviço:
+
+    systemctl --user status 8bitdo-home.service
+
+Acompanhar logs:
+
+    journalctl --user -u 8bitdo-home.service -f
+
+Reiniciar o monitor Python:
+
+    systemctl --user restart 8bitdo-home.service
+
+Parar:
+
+    systemctl --user stop 8bitdo-home.service
+
+Desabilitar e parar:
+
+    systemctl --user disable --now 8bitdo-home.service
+
+Após alterar o arquivo .service:
+
+    systemctl --user daemon-reload
+    systemctl --user restart 8bitdo-home.service
+
+Consultar janelas do Niri:
+
+    niri msg --json windows
+
+Consultar monitores:
+
+    niri msg --json outputs
+
+Consultar ações disponíveis:
+
+    niri msg action --help
+
+Focar o monitor da TV:
+
+    niri msg action focus-monitor HDMI-A-1
+
+8. OBSERVAÇÕES E LIMITAÇÕES
+
+-   Se o Big Picture estiver fechado, o script solicita sua abertura e
+    aguarda a janela aparecer.
+-   Se já estiver aberto, o script procura a janela pelo app_id “steam”
+    e pelo título “Steam — Modo Big Picture”, e solicita foco para ela.
+-   O nome do controle é usado para encontrá-lo; o caminho eventN pode
+    mudar.
+-   O monitor Python não captura os eventos com grab(), permitindo que o
+    Steam continue recebendo os eventos do controle.
+-   Após alterar somente steam-bigpicture-focus.sh, não é necessário
+    reiniciar o serviço: o Bash executa esse script a cada
+    pressionamento de Home.
+-   Após alterar 8bitdo-home.py, reinicie o serviço.
+-   Os caminhos /home/victor estão explícitos nos arquivos. Atualize-os
+    se o usuário ou o local dos scripts mudar.
+
+######################################################################################################
+OBS: por algum motivo o mouse não vai para o tv ao iniciar o linux, mas ao reinicar o serviço 
+apos iniciar o sistema funciona, a solução foi reinicar o serviço ao iniciar o niri.
+
+no arquivo ./config/niri/cfg/autostart.kdl colocar abaixo do noctalia o seguinte comando.
+spawn-at-startup "sh" "-c" "sleep 20 && systemctl --user restart 8bitdo-home.service"
+

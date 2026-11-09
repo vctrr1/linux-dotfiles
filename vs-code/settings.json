@@ -15,9 +15,7 @@
   "breadcrumbs.enabled": false, // Mantém a barra de status na parte inferior do VS Code
   //"workbench.activityBar.location": "hidden", //esconde a barra de atividade
   "symbols.hidesExplorerArrows": false, // Mostra as setas de expansão das pastas no Explorer
-  "terminal.integrated.fontSize": 14, // Tamanho da fonte do terminal integrado
-  //desativando os icones que n faz sentido perto dos botoes de fechar/minimizar
-  "chat.viewSessions.orientation": "stacked",
+  "terminal.integrated.fontSize": 14,
   "workbench.navigationControl.enabled": false,
   "chat.titleBar.signIn.enabled": false,
   "chat.titleBar.openInAgentsWindow.enabled": false,
@@ -60,4 +58,5 @@
   "git.autofetch": true,
   "workbench.colorTheme": "Bearded Theme Monokai Black",
   "git.enableSmartCommit": true,
+  "chat.viewSessions.orientation": "stacked",
 }

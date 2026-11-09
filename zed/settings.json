@@ -1,0 +1,50 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
+  "git_panel": {
+    "tree_view": false,
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "threads_sidebar": {
+      "position": "right"
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "proxy": "",
+  "cursor_shape": "bar",
+  "cursor_animation": {
+    "enabled": true
+  },
+  "icon_theme": "Base Charmed Icons",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Modest Dark"
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "terminal": {
+    "shell": {
+      "program": "/usr/bin/fish"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+cat /proc/acpi/wakeup | grep GPP0
+
+#se tiver enabled:
+echo GPP0 | sudo tee /proc/acpi/wakeup
+
+#conferir se desativou
+cat /proc/acpi/wakeup | grep GPP0
+
+#Para desativar o serviço permanentemente precisa criar um serviço
+sudo nano /etc/systemd/system/disable-gpp0-wakeup.service
+
+#colar no arquivo
+
+[Unit]
+Description=Disable GPP0 ACPI Wakeup
+After=systemd-suspend.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'grep -qE "^GPP0[[:space:]].*\\*enabled" /proc/acpi/wakeup && echo GPP0 > /proc/acpi/wakeup || true'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+
+#ativar serviço
+sudo systemctl daemon-reload
+sudo systemctl enable --now disable-gpp0-wakeup.service
+
+#conferir
+systemctl status disable-gpp0-wakeup.service --no-pager
+cat /proc/acpi/wakeup | grep GPP0
+
+
+
+
+
+
+Linux não mantém necessariamente as alterações feitas em /proc/acpi/wakeup após reiniciar. 
+Quando executa o echo GPP0 | sudo tee /proc/acpi/wakeup estamos alterando um parâmetro do kernel em tempo de execução. 
+O diretório /proc é um sistema de arquivos virtual: esse arquivo não é um arquivo de configuração comum salvo no disco.
+Quando você reinicia o computador, o kernel inicializa novamente e o GPP0 pode voltar a ficar habilitado.
+O serviço do systemd resolve isso automaticamente: 1 - O computador inicia. 2 - O systemd executa o serviço. 3 - O GPP0 permanece 
+desativado durante aquela sessão, permitindo que a hibernação funcione como esperado.

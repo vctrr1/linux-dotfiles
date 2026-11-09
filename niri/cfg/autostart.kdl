@@ -3,3 +3,4 @@
 // ─────────────────────────────────────────────
 
 spawn-at-startup "noctalia"
+spawn-at-startup "sh" "-c" "sleep 20 && systemctl --user restart 8bitdo-home.service"

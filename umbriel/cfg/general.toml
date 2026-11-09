@@ -1,0 +1,5 @@
+[general]
+autostart = [
+    "noctalia",
+    "sh -c 'sleep 20 && systemctl --user restart 8bitdo-home.service'"
+]
