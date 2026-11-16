@@ -30,8 +30,20 @@ hidden_tabs = [ "power", "bluetooth" ]
     [[control_center.shortcuts]]
     type = "session"
 
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
 [dock]
 auto_hide = true
+auto_hide_reveal_delay_ms = 100
 background_opacity = 0.4999999888241291
 cross_axis_padding = 3
 enabled = true
@@ -63,10 +75,10 @@ behavior_order = [ "screen-off", "lock", "lock-and-suspend" ]
 address = "Campina Grande - PB"
 
 [lockscreen]
+blurred_desktop = true
 transition = [ "disc", "fade", "honeycomb", "wipe", "zoom" ]
 
 [lockscreen_widgets]
-enabled = false
 schema_version = 2
 widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-3" ]
 
@@ -98,6 +110,7 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_media_controls = true
         show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
@@ -126,6 +139,7 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_media_controls = true
         show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
@@ -154,6 +168,7 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-2", "
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_media_controls = true
         show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
@@ -196,28 +211,28 @@ screen_time_enabled = true
 builtin = "Kanagawa"
 community_palette = "Everforest Material"
 mode = "dark"
-source = "community"
-wallpaper_scheme = "m3-content"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "kitty", "niri", "qt", "umbriel" ]
-    community_ids = [ "micro", "obsidian", "zed", "yazi" ]
+    community_ids = [ "micro", "obsidian", "zed", "strata", "zathura", "yazi" ]
 
 [wallpaper]
 directory = "/home/victor/Imagens/wallpapers"
 transition = [ "disc", "fade", "honeycomb", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/victor/Imagens/wallpapers/1.jpg"
+    path = "/home/victor/Imagens/wallpapers/a_street_lights_and_buildings_at_night.png"
 
     [wallpaper.last]
-    path = "/home/victor/Imagens/wallpapers/1.jpg"
+    path = "/home/victor/Imagens/wallpapers/10.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/victor/Imagens/wallpapers/1.jpg"
+    path = "/home/victor/Imagens/wallpapers/10.png"
 
     [wallpaper.monitors.DP-3]
-    path = "/home/victor/Imagens/wallpapers/1.jpg"
+    path = "/home/victor/Imagens/wallpapers/10.png"
 
     [wallpaper.monitors.HDMI-A-1]
     path = "/home/victor/Imagens/wallpapers/1.jpg"

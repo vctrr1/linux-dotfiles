@@ -43,6 +43,7 @@ coolercontrol
 coolercontrold
 cpupower
 cryptsetup
+dcraw
 ddcutil
 device-mapper
 diffutils
@@ -69,6 +70,7 @@ flatpak
 fnm
 fsarchiver
 fuse2
+gamescope
 ghidra
 git
 glances
@@ -81,6 +83,8 @@ gst-libav
 gst-plugin-pipewire
 gst-plugin-va
 gst-plugins-bad
+gst-plugins-base
+gst-plugins-good
 gst-plugins-ugly
 gvfs-smb
 hdparm
@@ -96,6 +100,7 @@ jdk21-openjdk
 jfsutils
 kitty
 lact
+lazygit
 less
 lib32-mesa
 lib32-opencl-mesa
@@ -190,6 +195,7 @@ snapper
 socat
 sof-firmware
 speech-dispatcher
+squashfs-tools
 starship
 steam
 sudo

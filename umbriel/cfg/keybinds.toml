@@ -2,6 +2,7 @@
 "Mod+Return" = { action = "spawn kitty", repeat = false }
 "Mod" = "spawn noctalia msg panel-toggle launcher"
 "Mod+Q" = { action = "window-close", repeat = false }
+"Mod+E" = "spawn /home/victor/.local/bin/strata"
 "Mod+Escape" = "session-quit"
 "Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
 "XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
@@ -69,3 +70,4 @@
 "Mod+Ctrl+Right" = "window-modify-width-right +0.02"
 "Mod+Ctrl+Up" = "window-modify-height-down -0.02"
 "Mod+Ctrl+Down" = "window-modify-height-down +0.02"
+"Print" = { action = "spawn noctalia msg screenshot-region", repeat = false }

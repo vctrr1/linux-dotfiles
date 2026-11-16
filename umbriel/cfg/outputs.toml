@@ -12,3 +12,7 @@ transform = "90"
 mode = "3840x2160@120"
 position = [2560, 0]
 transform = "normal"
+
+#Janelas abre com largura maxima no monitor vertical
+[output.DP-3.layout.scrolling]
+default_extent_fraction = 1.0

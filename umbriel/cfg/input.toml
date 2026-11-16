@@ -8,4 +8,4 @@ theme = "Bibata-Modern-Ice"
 size = 24
 
 [input.focus]
-follows_mouse = true
+follows_mouse = "sloppy"

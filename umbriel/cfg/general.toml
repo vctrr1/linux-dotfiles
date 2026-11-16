@@ -3,3 +3,5 @@ autostart = [
     "noctalia",
     "sh -c 'sleep 20 && systemctl --user restart 8bitdo-home.service'"
 ]
+
+xwayland_primary_output = "HDMI-A-1"
