@@ -10,7 +10,8 @@ Configurações do meu ambiente Linux.
 - Fastfetch
 - Plasma
 - Niri
-- Waybar
+- Umbriel
+- Noctalia
 - Nvim
 
 ## Scripts
